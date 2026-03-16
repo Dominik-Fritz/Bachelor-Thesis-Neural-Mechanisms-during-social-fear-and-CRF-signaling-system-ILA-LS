@@ -35,7 +35,7 @@ The folder structure reflects the organization of the analyses described in the 
 
 ## Requirements
 
-The analyses were performed using Python.
+The analyses were performed using Python 3.11.
 
 Required packages may include:
 
