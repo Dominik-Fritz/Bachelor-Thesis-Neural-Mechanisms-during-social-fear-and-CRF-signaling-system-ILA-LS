@@ -12,8 +12,8 @@ The repository is organized to mirror the structure of the analyses presented in
 
 The scripts are organized according to the sections and analyses described in the manuscript.
 
-analysis/  
-Scripts used for statistical analyses.
+classifier_and_model_validation/  
+Scripts used for validation of models and classifiers used in the study.
 
 data_processing/  
 Scripts for preprocessing and preparation of behavioral and imaging data.
