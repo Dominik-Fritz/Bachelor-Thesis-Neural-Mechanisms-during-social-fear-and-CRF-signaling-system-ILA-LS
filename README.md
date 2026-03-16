@@ -65,4 +65,4 @@ All scripts used for data processing, analysis, and figure generation are public
 
 For questions regarding the code or analyses, please contact:
 
-Dominik Fritz
+Dominik.Fritz@stud.uni-regensburg.de
