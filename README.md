@@ -15,8 +15,11 @@ The scripts are organized according to the sections and analyses described in th
 classifier_and_model_validation/  
 Scripts used for validation of models and classifiers used in the study.
 
-data_processing/  
-Scripts for preprocessing and preparation of behavioral and imaging data.
+statistical_analysis/
+Scripts used for statistical analysis of the data.
+
+qupath_scripts/  
+Scripts for image quantification in qupath.
 
 schematic_figures/  
 Scripts used to generate schematic illustrations of the experimental design and neural circuitry.
