@@ -1,0 +1,73 @@
+inputDir = "/G:/cfos_brain_mapping_AA_26.06.2025/first_series/merge/";
+outputDir = "/G:/cfos_brain_mapping_AA_26.06.2025/first_series/prepared_tiff/";
+
+getDateAndTime(year, month, dayOfWeek, dayOfMonth, hour, minute, second, msec);
+print("=== Batch Start ===");
+print("Date: " + dayOfMonth + "-" + (month+1) + "-" + year);
+print("Time: " + hour + ":" + minute + ":" + second);
+print("=====================");
+
+list = getFileList(inputDir);
+setBatchMode(true);
+
+for (i = 0; i < list.length; i++) {
+    filename = list[i];
+    if (!endsWith(filename, "_RAW_ch00.tif")) continue;
+    baseName = substring(filename, 0, indexOf(filename, "_RAW_ch00.tif"));
+    file_ch00 = inputDir + baseName + "_RAW_ch00.tif";
+    file_ch01 = inputDir + baseName + "_RAW_ch01.tif";
+    file_prob = inputDir + baseName + "_RAW_ch01_Probabilities.tif";
+    outputPath = outputDir + baseName + "_merged.tif";
+
+    skip = false;
+    if (File.exists(outputPath)) {
+        open(outputPath);
+        width = getWidth();
+        close();
+        if (width > 0) skip = true;
+    }
+    if (skip) continue;
+
+    showProgress(i+1, list.length);
+    print("[ " + (i+1) + "-" + (i+3) + " / " + list.length + " ] Processing: " + baseName);
+
+    open(file_ch00);
+    rename("ch00");
+    run("Enhance Contrast", "saturated=0.35 normalize");
+    run("8-bit");
+
+    open(file_ch01);
+    rename("ch01");
+    run("Enhance Contrast", "saturated=0.35 normalize");
+    run("8-bit");
+
+    run("Bio-Formats Importer", "open=[" + file_prob + "] autoscale color_mode=Default view=Hyperstack stack_order=XYCZT");
+    rename("probMap");
+
+    selectWindow("probMap");
+    setSlice(2);
+    run("Duplicate...", "title=probMap_slice2");
+    close("probMap");
+
+    selectWindow("probMap_slice2");
+    run("Multiply...", "value=255");
+    run("Enhance Contrast", "saturated=0.35 normalize");
+    run("8-bit");
+
+    run("Merge Channels...", "c1=ch00 c2=ch01 c3=probMap_slice2 create");
+    rename("Merged");
+
+    saveAs("Tiff", outputPath);
+
+    close("*");
+
+    print(" done");
+
+    if ((i+1) % 5 == 0) {
+        print("Clear Cache after " + (i+1) + " images...");
+        call("java.lang.System.gc");
+    }
+}
+
+setBatchMode(false);
+print("\n=== Batch Process done ===");

@@ -1,0 +1,55 @@
+inputDir = "/G:/cfos_brain_mapping_AA_26.06.2025/first_series/ch00/";
+outputDir = "/G:/cfos_brain_mapping_AA_26.06.2025/first_series/ch00_prep/";
+rollingBallRadius = 50;
+
+getDateAndTime(year, month, dayOfWeek, dayOfMonth, hour, minute, second, msec);
+print("=== Batch Start ===");
+print("Date: " + dayOfMonth + "-" + (month+1) + "-" + year);
+print("Time: " + hour + ":" + minute + ":" + second);
+print("=====================");
+
+list = getFileList(inputDir);
+print("Process " + list.length + " files...\n");
+
+setBatchMode(true);
+
+for (i = 0; i < list.length; i++) {
+    if (endsWith(list[i], ".tif")) {
+        inputPath = inputDir + list[i];
+        outputPath = outputDir + list[i];
+
+        skip = false;
+        if (File.exists(outputPath)) {
+            open(outputPath);
+            width = getWidth();
+            close();
+            if (width > 0) {
+                print("[" + (i+1) + "/" + list.length + "] Skipping (already exists and valid): " + list[i]);
+                skip = true;
+            } else {
+                print("[" + (i+1) + "/" + list.length + "] Reprocessing (file exists but invalid): " + list[i]);
+            }
+        }
+
+        if (skip) continue;
+
+        showProgress(i+1, list.length);
+        print("[" + (i+1) + "/" + list.length + "] Processing: " + list[i], "");
+
+        open(inputPath);
+        run("Subtract Background...", "rolling=" + rollingBallRadius + " sliding");
+        run("Enhance Contrast", "saturated=0.35");
+        saveAs("Tiff", outputPath);
+        close();
+
+        print(" done");
+
+        if ((i+1) % 5 == 0) {
+            print("Clear Cache after " + (i+1) + " images...");
+            call("java.lang.System.gc");
+        }
+    }
+}
+
+setBatchMode(false);
+print("\n=== Batch Process done ===");
