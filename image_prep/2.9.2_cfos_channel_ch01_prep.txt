@@ -1,5 +1,5 @@
-inputDir = "/G:/cfos_brain_mapping_AA_26.06.2025/second_series/ch01/";
-outputDir = "/G:/cfos_brain_mapping_AA_26.06.2025/second_series/ch01_substracted/";
+inputDir = "/G:/cfos_brain_mapping_AA_26.06.2025/second_series/ch01/"; //Change Pathway to Input directory
+outputDir = "/G:/cfos_brain_mapping_AA_26.06.2025/second_series/ch01_substracted/"; //Change Pathway to Output directory
 rollingBallRadius = 200;
 
 getDateAndTime(year, month, dayOfWeek, dayOfMonth, hour, minute, second, msec);
