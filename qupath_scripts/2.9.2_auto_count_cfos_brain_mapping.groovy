@@ -36,7 +36,7 @@ if (pathObjects.isEmpty()) {
 println("Definitions done")
 
 //Cellpose DAPI***
-def pathModeldapi = "G:/counting/cfos_whole_brain/cellpose_model_dapi_1024px"
+def pathModeldapi = "G:/counting/cfos_whole_brain/cellpose_model_dapi_1024px" //Change Pathway to Cellpose model file
 
 def cellposeDAPI = Cellpose2D.builder(pathModeldapi)
           .pixelSize(0.5)
@@ -122,7 +122,7 @@ println("Re-Imported ABBA Annotations")
 def rawName = QP.getCurrentImageData().getServer().getMetadata().getName()
 def safeName = rawName.replaceAll("[^a-zA-Z0-9-_\\.]", "_")
 
-def csvPath = "G:/results_M?.csv"
+def csvPath = "G:/results_M?.csv" //Change name of .csv file before running script to avoide override the last run
 def file = new File(csvPath)
 
 def fileExists = file.exists()
