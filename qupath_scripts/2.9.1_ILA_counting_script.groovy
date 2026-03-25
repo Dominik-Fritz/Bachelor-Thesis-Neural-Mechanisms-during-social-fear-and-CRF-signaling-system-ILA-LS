@@ -33,7 +33,7 @@ if (selectedAnnotations == null || selectedAnnotations.isEmpty()) {
 
 println("Found ${selectedAnnotations.size()} matching Annotations")
 
-def modelPath = "G:/counting/stardist_counting_and_imagej_files/model.pb"
+def modelPath = "G:/counting/stardist_counting_and_imagej_files/model.pb" //Change Pathway for StarDist model file
 def modelFile = new File(modelPath)
 if (!modelFile.exists()) {
     print("ERROR: Model file not found at ${modelPath}")
