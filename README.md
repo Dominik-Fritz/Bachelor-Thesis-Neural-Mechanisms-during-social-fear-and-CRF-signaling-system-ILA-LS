@@ -31,7 +31,7 @@ Scripts used to generate schematic illustrations explaining experimental design 
 
 ---
 
-Analysis Pipeline Overview
+# Analysis Pipeline Overview
 
 The analysis pipeline implemented in this repository follows the workflow used in the manuscript.
 
