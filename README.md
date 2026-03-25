@@ -12,24 +12,31 @@ The repository is organized to mirror the structure of the analyses presented in
 Repository Structure
 
 classifier_and_model_validation/
+
 Scripts used for validation of segmentation models and classifiers.
 
 example_files/
+
 Example GeoJSON files used for classifier validation, as well as example CSV files containing validation results (precision, recall, and F1 scores) exported in spreadsheet format.
 
 image_prep/
+
 ImageJ macros used for preprocessing of microscopy images.
 
 models/
+
 Pre-trained models used for nucleus segmentation and classification.
 
 qupath_scripts/
+
 Scripts used for automated image analysis and signal quantification within QuPath.
 
 statistical_analysis/
+
 Python scripts used for statistical analysis of the c-Fos whole-brain mapping dataset.
 
 schematic_figures/
+
 Scripts used to generate schematic illustrations explaining experimental design and figure generation workflows.
 
 ---
