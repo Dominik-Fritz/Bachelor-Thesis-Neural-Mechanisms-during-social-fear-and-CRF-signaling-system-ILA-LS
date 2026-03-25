@@ -99,7 +99,7 @@ These scripts reproduce schematic figures used in the manuscript and document ho
 
 ---
 
-Reproducibility
+# Reproducibility
 
 All scripts required to reproduce the analyses and figures reported in the manuscript are provided in this repository.
 
@@ -109,7 +109,7 @@ Each script contains comments describing its purpose and expected input format.
 
 ---
 
-Data Organization
+# Data Organization
 
 The analyses in this repository are based on processed datasets derived from histological imaging and behavioral experiments described in the manuscript.
 
@@ -125,7 +125,7 @@ Users wishing to reproduce the analysis pipeline should adapt the input paths wi
 
 ---
 
-External Software
+# External Software
 
 The analysis pipeline relies on several external software tools commonly used in histological image analysis:
 
@@ -139,7 +139,7 @@ Users reproducing the pipeline should ensure that compatible versions of these t
 
 ---
 
-Requirements
+# Requirements
 
 The analyses were performed using Python 3.11 (except Cellpose, which was run using Python 3.8).
 
@@ -154,7 +154,7 @@ Additional dependencies are specified within the individual scripts.
 
 ---
 
-Usage
+# Usage
 
 Scripts can be executed individually depending on the analysis step.
 
@@ -170,7 +170,7 @@ Typical usage follows the pipeline described above:
 
 ---
 
-Code Availability
+# Code Availability
 
 All scripts used for data processing, analysis, and figure generation are publicly available in this repository.
 
@@ -178,7 +178,7 @@ The repository is intended to provide full transparency for the analysis pipelin
 
 ---
 
-Data Availability
+# Data Availability
 
 Due to the size of the raw microscopy datasets, raw images are not included in this repository.
 
@@ -188,7 +188,7 @@ Additional data may be made available upon reasonable request.
 
 ---
 
-Citation
+# Citation
 
 If you use the scripts or models provided in this repository, please cite the associated study:
 
@@ -197,7 +197,7 @@ Neural Mechanisms of Social Fear Extinction in Mice: Role of Lateral Septal CRF 
 
 ---
 
-Contact
+# Contact
 
 For questions regarding the code or analyses, please contact:
 
