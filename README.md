@@ -130,9 +130,13 @@ Users wishing to reproduce the analysis pipeline should adapt the input paths wi
 The analysis pipeline relies on several external software tools commonly used in histological image analysis:
 
 QuPath – digital pathology and automated image quantification
+
 ImageJ / Fiji + ABBA – image preprocessing and macro-based processing
+
 Cellpose – deep learning–based cell segmentation (c-Fos datasets)
+
 StarDist – nucleus segmentation for RNAscope datasets
+
 Python – statistical analysis and figure generation
 
 Users reproducing the pipeline should ensure that compatible versions of these tools are installed.
