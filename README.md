@@ -9,7 +9,7 @@ The repository is organized to mirror the structure of the analyses presented in
 
 ---
 
-Repository Structure
+# Repository Structure
 
 classifier_and_model_validation/
 
